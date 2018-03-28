@@ -1,0 +1,26 @@
+films = {
+    "Black Panther":[18,5],
+    "Coco":[3,12],
+    "The Red Sparrow":[18,15],
+    "Raid":[18,6],
+    "A Wrinkle In The Time":[3,10]
+    }
+
+while True:
+    choice = input("What film would you like to watch?: ").strip().title()
+
+    if choice in films:
+        age = int(input("How old are you?: ").strip())
+        #Check user age
+        if age >= films[choice][0]:
+            #Check number of seats
+            num_seats = films[choice][1]
+            if num_seats > 0:
+               print("Enjoy the film!")
+               films[choice][1] = films[choice][1]-1
+            else:
+                print("We are Sold Out!")
+        else:
+           print("You are too young to watch {}.".format(choice))
+    else:
+        print("We don't have that film")
